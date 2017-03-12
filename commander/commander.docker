@@ -1,0 +1,12 @@
+FROM node:4.8.0
+MAINTAINER Usman Zubair <uzubair@gmail.com>
+
+LABEL description="Redis Commander" \
+    version=0.4.2
+
+RUN curl -L https://github.com/joeferner/redis-commander/tarball/v0.4.2 | tar zx
+RUN npm i -g redis-commander
+
+EXPOSE 8081
+
+CMD ["redis-commander", "--redis-host", "redis"]
